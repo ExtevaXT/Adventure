@@ -1,0 +1,59 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:group",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/maize"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/soybean"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/coffea"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/cotton"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/tobacco"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:arrow",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 0,
+                "max": 2
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ]
+    }
+  ]
+}

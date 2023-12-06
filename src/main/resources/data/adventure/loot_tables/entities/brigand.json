@@ -1,0 +1,72 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:group",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/wheat"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/pumpkin"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/potato"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/flax"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/hemp"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/weld"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:arrow",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 0,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:entity_properties",
+              "entity": "this",
+              "predicate": {
+                "equipment": {
+                  "mainhand": {
+                    "items": [
+                      "minecraft:bow"
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ]
+    }
+  ]
+}

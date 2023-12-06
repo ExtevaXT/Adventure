@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "su.external.adventure.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "adventure.refmap.json",
+  "mixins": [
+    "MixinClientHelpers"
+  ],
+  "client": [
+    "MixinClientHelpers"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

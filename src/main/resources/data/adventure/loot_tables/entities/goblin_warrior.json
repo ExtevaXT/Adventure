@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:group",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/barley"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/potato"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/carrot"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/peyote"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/coca"
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:metal/sheet/wrought_iron",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.01
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ]
+    }
+  ]
+}

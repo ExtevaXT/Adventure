@@ -1,0 +1,30 @@
+{
+  "when": {
+    "night": true,
+    "day": true,
+    "dimensions": ["minecraft:overworld"]
+  },
+  "message": ["Пираты приближаются с запада!","Пираты приближаются с востока!","Пираты приближаются с севера!","Пираты приближаются с юга!"],
+  "chance": 60,
+  "spawnRate": 100,
+  "radius": 32,
+  "height": 0,
+  "spawn": [
+    {
+      "entity": "adventure:pirate_captain",
+      "weight": 1
+    },
+    {
+      "entity": "adventure:pirate_corsair",
+      "weight": 5
+    },
+    {
+      "entity": "adventure:pirate_crossbower",
+      "weight": 3
+    },
+    {
+      "entity": "adventure:pirate_deckhand",
+      "weight": 5
+    }
+  ]
+}

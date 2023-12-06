@@ -1,0 +1,32 @@
+{
+  "entity.adventure.bandit": "Bandit",
+  "entity.adventure.brigand": "Brigand",
+
+  "entity.adventure.goblin_archer": "Goblin Archer",
+  "entity.adventure.goblin_warrior": "Goblin Warrior",
+  "entity.adventure.goblin_peon": "Goblin Peon",
+
+  "entity.adventure.pirate_captain": "Pirate Captain",
+  "entity.adventure.pirate_corsair": "Pirate Corsair",
+  "entity.adventure.pirate_crossbower": "Pirate Crossbower",
+  "entity.adventure.pirate_deckhand": "Pirate Deckhand",
+
+  "entity.adventure.trader": "Trader",
+
+  "entity.adventure.big_slime": "Big Slime",
+
+  "item.adventure.coin1": "1 Coin",
+  "item.adventure.coin10": "10 Coins",
+  "item.adventure.coin100": "100 Coins",
+
+  "itemGroup.adventuretab": "Adventure",
+
+  "command.claim.fail": "Claim failed, you need %d coins",
+  "trader.sold": "Sold for %d coins",
+  "trader.exchange": "Exchanged %d coins",
+  "trader.acceptable": "Accepting: %s",
+  "trader.check": "Base price for this ItemStack: %s \n Shift+Right-click to sell",
+  "trades.update": "New trade offers: %s",
+
+  "boss.kill": "%s was killed by %s"
+}

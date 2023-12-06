@@ -1,0 +1,22 @@
+{
+  "when": {
+    "night": false,
+    "day": true,
+    "dimensions": ["minecraft:overworld"]
+  },
+  "message": ["Слизни падают с неба!"],
+  "chance": 100,
+  "spawnRate": 40,
+  "radius": 10,
+  "height": 10,
+  "lifetimed": true,
+  "boss": "adventure:big_slime",
+  "bossCounterThreshold": 50,
+  "spawn": [
+    {
+      "entity": "minecraft:slime",
+      "weight": 1,
+      "lifetime": 1200
+    }
+  ]
+}

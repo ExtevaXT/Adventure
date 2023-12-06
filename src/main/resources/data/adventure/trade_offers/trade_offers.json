@@ -1,0 +1,9 @@
+[
+  {
+    "item": "tfc:metal/ingot/copper",
+    "price": {
+      "min": 100,
+      "max": 3
+    }
+  }
+]

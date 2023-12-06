@@ -1,0 +1,52 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:group",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/rice"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/beet"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/garlic"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/carrot"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/tomato"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/hop"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/coffea"
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        },
+        {
+          "condition": "minecraft:random_chance",
+          "chance": 0.05
+        }
+      ]
+    }
+  ]
+}

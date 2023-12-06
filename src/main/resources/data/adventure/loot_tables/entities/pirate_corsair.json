@@ -1,0 +1,92 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:group",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/wheat"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/garlic"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/squash"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:seeds/sugarcane"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/cotton"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "hallucinocraft:seeds/indigo"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:raw_gold",
+          "functions": [
+            {
+              "function": "minecraft:set_count",
+              "count": {
+                "min": 1,
+                "max": 4
+              }
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.05
+            }
+          ]
+        },
+        {
+          "type": "minecraft:group",
+          "children": [
+            {
+              "type": "minecraft:item",
+              "name": "tfc:powder/ruby"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:powder/sapphire"
+            },
+            {
+              "type": "minecraft:item",
+              "name": "tfc:powder/topaz"
+            }
+          ],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.05
+            }
+          ]
+        }
+      ],
+      "conditions": [
+        {
+          "condition": "minecraft:killed_by_player"
+        }
+      ]
+    }
+  ]
+}
