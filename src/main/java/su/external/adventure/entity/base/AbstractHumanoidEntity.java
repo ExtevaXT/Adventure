@@ -2,8 +2,6 @@ package su.external.adventure.entity.base;
 
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.sounds.SoundEvent;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -17,26 +15,26 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 import su.external.adventure.Adventure;
+import su.external.adventure.config.Config;
 import su.external.adventure.item.AdventureItems;
 
 public abstract class AbstractHumanoidEntity extends Monster {
-    protected String[] METALS = {"copper", "bronze", "bismuth_bronze", "black_bronze", "wrought_iron", "steel", "black_steel", "red_steel", "blue_steel"};
+    protected String[] METALS = Config.humanoidEntity.metals.get().toArray(String[]::new);
     protected int armor_tier = -1;
     protected int weapon_tier = -1;
-    protected float coin_multiplier = 1F;
-    protected static final float ARMOR_PROBABILITY = 10F;
+    protected float coin_multiplier = Config.humanoidEntity.coinMultiplier.get().floatValue();
+    protected static final float ARMOR_PROBABILITY = Config.humanoidEntity.armorProbability.get().floatValue();
     protected AbstractHumanoidEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
-    public static AttributeSupplier setAttributes() {
+    public static AttributeSupplier.Builder bakeAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 20.0D)
-                .add(Attributes.ATTACK_DAMAGE, 3.0f)
-                .add(Attributes.ATTACK_SPEED, 2.0f)
-                .add(Attributes.MOVEMENT_SPEED, 0.3f)
-                .add(Attributes.FOLLOW_RANGE, 32.0D).build();
+                .add(Attributes.MAX_HEALTH, Config.humanoidEntity.maxHealth.get())
+                .add(Attributes.ATTACK_DAMAGE, Config.humanoidEntity.attackDamage.get())
+                .add(Attributes.ATTACK_SPEED, Config.humanoidEntity.attackSpeed.get())
+                .add(Attributes.MOVEMENT_SPEED, Config.humanoidEntity.movementSpeed.get())
+                .add(Attributes.FOLLOW_RANGE, Config.humanoidEntity.followRange.get());
     }
     protected void registerGoals() {
         this.goalSelector.addGoal(0, new WaterAvoidingRandomStrollGoal(this, 0.8D));

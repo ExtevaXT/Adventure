@@ -32,7 +32,7 @@ public class RainEventCommand {
     public static int handleStart(CommandContext<CommandSourceStack> source) throws CommandSyntaxException {
         ResourceLocation type = RainArgumentType.get(source, "event");
         boolean success = RainHandler.startRain(source.getSource().getLevel(), type);
-        source.getSource().sendSuccess(new TranslatableComponent("success.entityrain." + (success ? "start_rain" : "invlaid_rain")).withStyle(ChatFormatting.AQUA), true);
+        source.getSource().sendSuccess(new TranslatableComponent("success.entityrain." + (success ? "start_rain" : "invalid_rain")).withStyle(ChatFormatting.AQUA), true);
         return Command.SINGLE_SUCCESS;
     }
 

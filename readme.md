@@ -1,19 +1,24 @@
 # Adventure
+Mod for Adventure TFC
 
 Features:
 - Some hostile entities that drop coins.
-- Goblin and pirate invasion events.
-- Trader that exchange denomination.
+- Goblin, pirate invasion, slime day events.
+- Trader that exchange denomination and buying goods.
 - Command /claim to claim chunks for 10000^1.5*{player chunks} coins
+- Almost full config for entities
 
 Notes:
 - Coin drop based on entity equipment
 - EntityEvent can be configured by datapack see [Entity Rain Mod](https://github.com/LukeGrahamLandry/smells-fishy-mod) 
 - Drops can be confured by loot tables
+- Summon trader `/summon adventure:trader` and update offers `/trades` by yourself
 
 Dependencies: 
 - TerraFirmaCraft-Forge-1.18.2-2.2.18.jar (Used TFC armor, weapons, JavelinGoal)
 - ftb-chunks-forge-1802.3.17-build.265.jar (Chunk claiming for coins)
+- decay_2012-1.0.2.jar (Trader decay modifier)
+- firmalife-1.2.9.jar (idk)
 - ftb-teams-forge-1802.2.11-build.107.jar (Nested dependency)
 - ftb-library-forge-1802.3.11-build.177.jar (Nested dependency)
 - architectury-4.11.93-forge.jar (Nested dependency)
@@ -74,7 +79,12 @@ UPD Adventure-1.5
 - Added Parchment, idk what is it
 - Added crutch for selling items with nutrient
 
-Adventure.LOGGER.info(stack.getTooltipLines(player, TooltipFlag.Default.NORMAL));
+UPD Adventure-1.6.0
+- Borrowed some code and assets from some big mod
+- Refactored some code and added fucking configs
+- Added some logs
+- Synced version with Adventure TFC and added server version check
+- Fixed crossbower crossbow goal
 
 ## Loot tables
 
@@ -82,7 +92,7 @@ Adventure.LOGGER.info(stack.getTooltipLines(player, TooltipFlag.Default.NORMAL))
 |------------------------------------|---------------------------------------------|-----------------------------------|-----------------------------------------------------------------------|
 | entity.adventure.bandit            | rice beet garlic carrot tomato hop coffea   |                                   |                                                                       |
 | entity.adventure.brigand           | wheat pumpkin potato flax hemp weld         | bow? : 0-4 arrow                  |                                                                       |
-| entity.adventure.goblin_archer     | maize soybean coffea! cotton tobacco        | 0.05 leather 0-4 arrow            |                                                                       |
+| entity.adventure.goblin_archer     | maize soybean coffea cotton tobacco         | 0.05 leather 0-4 arrow            |                                                                       |
 | entity.adventure.goblin_warrior    | barley potato carrot peyote coca            | 0.05 metal/sheet/wrought_iron     |                                                                       |
 | entity.adventure.goblin_peon       | wheat onion agave woad                      | 0.05 1-2 leather_strip            |                                                                       |
 | entity.adventure.pirate_captain    | rye cabbage jute papyrus sugarcane coffea   | 0.075 1-4 raw_gold 0-16 gunpowder | amethyst diamond emerald lapis_lazuli opal pyrite ruby sapphire topaz |

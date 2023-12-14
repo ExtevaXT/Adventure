@@ -9,7 +9,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.server.level.ServerPlayer;
-import su.external.adventure.util.CoinHelper;
+import su.external.adventure.helpers.CoinHelper;
 
 public class ClaimCommand {
     // No configs?

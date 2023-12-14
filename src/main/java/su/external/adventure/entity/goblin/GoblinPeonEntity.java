@@ -6,6 +6,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import su.external.adventure.config.Config;
 import su.external.adventure.entity.base.AbstractHumanoidEntity;
 import su.external.adventure.entity.base.AbstractMeleeEntity;
 
@@ -15,13 +16,10 @@ public class GoblinPeonEntity extends AbstractMeleeEntity {
         setArmor();
         setWeapon();
     }
-    public static AttributeSupplier setAttributes() {
-        return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 20.0D)
-                .add(Attributes.ATTACK_DAMAGE, 3.0f)
-                .add(Attributes.ATTACK_SPEED, 4.0f)
-                .add(Attributes.MOVEMENT_SPEED, 0.5f)
-                .add(Attributes.FOLLOW_RANGE, 32.0D).build();
+    public static AttributeSupplier.Builder bakeAttributes() {
+        return AbstractHumanoidEntity.bakeAttributes()
+                .add(Attributes.ATTACK_SPEED, Config.goblinPeon.attackSpeed.get())
+                .add(Attributes.MOVEMENT_SPEED, Config.goblinPeon.movementSpeed.get());
     }
     @Override
     protected void setArmor() {

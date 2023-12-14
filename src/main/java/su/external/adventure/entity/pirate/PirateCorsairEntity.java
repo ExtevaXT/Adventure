@@ -7,6 +7,7 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import su.external.adventure.config.Config;
 import su.external.adventure.entity.base.AbstractHumanoidEntity;
 import su.external.adventure.entity.base.AbstractRaidEntity;
 
@@ -18,14 +19,12 @@ public class PirateCorsairEntity extends AbstractRaidEntity {
         METALS = new String[] {"black_bronze", "wrought_iron", "steel", "black_steel"};
         setArmor();
     }
-    public static AttributeSupplier setAttributes() {
-        return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 30.0D)
-                .add(Attributes.ATTACK_DAMAGE, 4.0f)
-                .add(Attributes.ATTACK_SPEED, 6.0f)
-                .add(Attributes.MOVEMENT_SPEED, 0.3f)
-                .add(Attributes.FOLLOW_RANGE, 32.0D).build();
+    public static AttributeSupplier.Builder bakeAttributes() {
+        return AbstractHumanoidEntity.bakeAttributes()
+                .add(Attributes.MAX_HEALTH, Config.pirateCorsair.maxHealth.get())
+                .add(Attributes.ATTACK_DAMAGE, Config.pirateCorsair.attackDamage.get());
     }
+
     @Override
     protected void setArmor() {
         armor_tier = random.nextInt(METALS.length);
@@ -41,7 +40,7 @@ public class PirateCorsairEntity extends AbstractRaidEntity {
     }
     @Override
     protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
-        coin_multiplier = 1.25F;
+        coin_multiplier = Config.pirateCorsair.coinMultiplier.get().floatValue();
         super.dropCustomDeathLoot(source, looting, recentlyHitIn);
     }
 }

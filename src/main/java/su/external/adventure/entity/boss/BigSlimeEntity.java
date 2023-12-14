@@ -1,37 +1,23 @@
 package su.external.adventure.entity.boss;
 
-import net.dries007.tfc.client.TFCSounds;
-import net.dries007.tfc.util.Helpers;
-import net.minecraft.core.Registry;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.server.bossevents.CustomBossEvent;
 import net.minecraft.server.level.ServerBossEvent;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.BossEvent;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.MobSpawnType;
-import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.LeapAtTargetGoal;
-import net.minecraft.world.entity.boss.wither.WitherBoss;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.Slime;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.entity.projectile.AbstractArrow;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.gameevent.GameEvent;
-import net.minecraft.world.level.storage.loot.BuiltInLootTables;
-import org.jetbrains.annotations.Nullable;
-import su.external.adventure.util.TradeHelper;
+import su.external.adventure.config.Config;
 
 public class BigSlimeEntity extends Slime {
     private final ServerBossEvent bossEvent = (ServerBossEvent)(new ServerBossEvent(this.getDisplayName(), BossEvent.BossBarColor.GREEN, BossEvent.BossBarOverlay.PROGRESS));
@@ -60,16 +46,14 @@ public class BigSlimeEntity extends Slime {
         this.bossEvent.setProgress(this.getHealth() / this.getMaxHealth());
         super.customServerAiStep();
     }
-
-    public static AttributeSupplier setAttributes() {
+    public static AttributeSupplier.Builder bakeAttributes() {
         return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 100.0D)
-                .add(Attributes.ATTACK_DAMAGE, 10.0f)
-                .add(Attributes.ATTACK_SPEED, 2.0f)
-                .add(Attributes.MOVEMENT_SPEED, 0.5f)
-                .add(Attributes.FOLLOW_RANGE, 32.0D).build();
+                .add(Attributes.MAX_HEALTH, Config.bigSlime.maxHealth.get())
+                .add(Attributes.ATTACK_DAMAGE, Config.bigSlime.attackDamage.get())
+                .add(Attributes.ATTACK_SPEED, Config.bigSlime.attackSpeed.get())
+                .add(Attributes.MOVEMENT_SPEED, Config.bigSlime.movementSpeed.get())
+                .add(Attributes.FOLLOW_RANGE, Config.bigSlime.followRange.get());
     }
-
     @Override
     protected ResourceLocation getDefaultLootTable() {
         return this.getType().getDefaultLootTable();

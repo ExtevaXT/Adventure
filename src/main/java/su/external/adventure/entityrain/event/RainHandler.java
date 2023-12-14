@@ -108,6 +108,7 @@ public class RainHandler extends SavedData {
         if (rain != null) {
             for (Player player : level.players())
                 player.sendMessage(new TranslatableComponent(rain.message[rand.nextInt(rain.message.length)]), player.getUUID());
+            Adventure.LOGGER.info("EntityRain {}", rainType);
             get(level).currentEvent = rain;
             get(level).currentEventKey = rainType;
             get(level).bossCounter = 0;

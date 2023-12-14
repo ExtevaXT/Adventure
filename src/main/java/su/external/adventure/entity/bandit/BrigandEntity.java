@@ -7,13 +7,21 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.dries007.tfc.common.entities.ai.JavelinAttackGoal;
+import su.external.adventure.config.Config;
 import su.external.adventure.entity.base.AbstractRangedEntity;
 
 public class BrigandEntity extends AbstractRangedEntity {
     protected void registerGoals() {
         super.registerGoals();
-        this.goalSelector.addGoal(2, new RangedBowAttackGoal<>(this, 1.0D, 20, 15.0F));
-        this.goalSelector.addGoal(4, new JavelinAttackGoal<>(this, 1, 15f));
+        this.goalSelector.addGoal(2, new RangedBowAttackGoal<>(this,
+                Config.brigand.speedModifier.get(),
+                Config.brigand.attackIntervalMin.get(),
+                Config.brigand.attackRadius.get().floatValue()
+        ));
+        this.goalSelector.addGoal(4, new JavelinAttackGoal<>(this,
+                Config.brigand.speedModifier.get(),
+                Config.brigand.attackRadius.get().floatValue()
+        ));
     }
     @Override
     protected void setWeapon() {

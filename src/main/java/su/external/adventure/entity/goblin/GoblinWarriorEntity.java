@@ -3,13 +3,10 @@ package su.external.adventure.entity.goblin;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
 import net.minecraft.world.entity.monster.Monster;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
-import su.external.adventure.entity.base.AbstractHumanoidEntity;
+import su.external.adventure.config.Config;
 import su.external.adventure.entity.base.AbstractMeleeEntity;
-import su.external.adventure.entity.base.AbstractRangedEntity;
 
 public class GoblinWarriorEntity  extends AbstractMeleeEntity {
     protected static final String[] WEAPONS = {"sword", "mace"};
@@ -28,7 +25,7 @@ public class GoblinWarriorEntity  extends AbstractMeleeEntity {
     }
     @Override
     protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
-        coin_multiplier = 1.5F;
+        coin_multiplier = Config.goblinWarrior.coinMultiplier.get().floatValue();
         super.dropCustomDeathLoot(source, looting, recentlyHitIn);
     }
 }

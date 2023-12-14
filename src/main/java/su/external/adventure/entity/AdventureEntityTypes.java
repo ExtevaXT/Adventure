@@ -4,7 +4,12 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -53,5 +58,24 @@ public class AdventureEntityTypes {
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);
+    }
+
+
+    @SubscribeEvent
+    public static void createAttributes(EntityAttributeCreationEvent event) {
+        Adventure.LOGGER.info("createAttributes");
+        Adventure.LOGGER.info(PirateCaptainEntity.bakeAttributes());
+        Adventure.LOGGER.info(PirateCaptainEntity.bakeAttributes().build().getValue(Attributes.MAX_HEALTH));
+        event.put(AdventureEntityTypes.BANDIT.get(), BanditEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.BRIGAND.get(), BrigandEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.GOBLIN_WARRIOR.get(), GoblinWarriorEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.GOBLIN_ARCHER.get(), GoblinArcherEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.GOBLIN_PEON.get(), GoblinPeonEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.PIRATE_CAPTAIN.get(), PirateCaptainEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.PIRATE_CROSSBOWER.get(), PirateCrossbowerEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.PIRATE_DECKHAND.get(), PirateDeckhandEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.PIRATE_CORSAIR.get(), PirateCorsairEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.TRADER.get(), TraderEntity.bakeAttributes().build());
+        event.put(AdventureEntityTypes.BIG_SLIME.get(), BigSlimeEntity.bakeAttributes().build());
     }
 }

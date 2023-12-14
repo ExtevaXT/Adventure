@@ -6,9 +6,9 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.LeapAtTargetGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
+import su.external.adventure.config.Config;
 import su.external.adventure.entity.base.AbstractHumanoidEntity;
 import su.external.adventure.entity.base.AbstractRaidEntity;
 
@@ -19,13 +19,11 @@ public class PirateCaptainEntity extends AbstractRaidEntity {
         METALS = new String[] {"black_steel","blue_steel","red_steel"};
         setArmor();
     }
-    public static AttributeSupplier setAttributes() {
-        return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, 60.0D)
-                .add(Attributes.ATTACK_DAMAGE, 5.0f)
-                .add(Attributes.ATTACK_SPEED, 4.0f)
-                .add(Attributes.MOVEMENT_SPEED, 0.4f)
-                .add(Attributes.FOLLOW_RANGE, 32.0D).build();
+    public static AttributeSupplier.Builder bakeAttributes() {
+        return AbstractHumanoidEntity.bakeAttributes()
+                .add(Attributes.MAX_HEALTH, Config.pirateCaptain.maxHealth.get())
+                .add(Attributes.ATTACK_DAMAGE, Config.pirateCaptain.attackDamage.get())
+                .add(Attributes.MOVEMENT_SPEED, Config.pirateCaptain.movementSpeed.get());
     }
     @Override
     protected void setArmor() {
@@ -39,7 +37,7 @@ public class PirateCaptainEntity extends AbstractRaidEntity {
     }
     @Override
     protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {
-        coin_multiplier = 2F;
+        coin_multiplier = Config.pirateCaptain.coinMultiplier.get().floatValue();
         super.dropCustomDeathLoot(source, looting, recentlyHitIn);
     }
     @Override
