@@ -16,12 +16,9 @@ Notes:
 
 Dependencies: 
 - TerraFirmaCraft-Forge-1.18.2-2.2.18.jar (Used TFC armor, weapons, JavelinGoal)
-- ftb-chunks-forge-1802.3.17-build.265.jar (Chunk claiming for coins)
+- open-parties-and-claims-forge-1.18.2-0.17.3.jar (Chunk claiming for coins)
 - decay_2012-1.0.2.jar (Trader decay modifier)
 - firmalife-1.2.9.jar (idk)
-- ftb-teams-forge-1802.2.11-build.107.jar (Nested dependency)
-- ftb-library-forge-1802.3.11-build.177.jar (Nested dependency)
-- architectury-4.11.93-forge.jar (Nested dependency)
 - Patchouli-1.18.2-71.1.jar (Nested dependency)
 - jei-1.18.2-9.7.2.1001.jar (Nested dependency)
 
@@ -86,6 +83,9 @@ UPD Adventure-1.6.0
 - Synced version with Adventure TFC and added server version check
 - Fixed crossbower crossbow goal
 
+UPD Adventure-1.6.1
+- Replaced claim mod back to openpac, because I am retard
+  
 ## Loot tables
 
 | Entity                             | Seeds 0.05                                  | Special                           | Gem Powder 0.05                                                       |
