@@ -28,7 +28,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.6.0'
+version = '1.6.1'
 group = 'su.external.adventure'
 archivesBaseName = 'Adventure'
 
@@ -59,11 +59,10 @@ dependencies {
     }
 
     implementation fg.deobf("curse.maven:terrafirmacraft-302973:4514056")
-    implementation fg.deobf("curse.maven:ftb-chunks-forge-314906:4494633")
     implementation fg.deobf("curse.maven:firmalife-453394:4506621")
     implementation fg.deobf("curse.maven:decay-2012-676521:3992745")
+    implementation fg.deobf("curse.maven:open-parties-and-claims-636608:4500809")
 
-    implementation fg.deobf("curse.maven:ftb-teams-forge-404468:4579981")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
