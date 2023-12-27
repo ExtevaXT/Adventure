@@ -1,6 +1,7 @@
 package su.external.adventure.entity.trader;
 
 import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -9,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.goal.LookAtPlayerGoal;
+import net.minecraft.world.entity.animal.Cow;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -24,7 +26,9 @@ public class TraderEntity extends Mob {
     public List<TradeOffer> acceptable;
     public TraderEntity(EntityType<? extends Mob> entityType, Level level) {
         super(entityType, level);
-        setInvulnerable(true);
+    }
+    public boolean removeWhenFarAway(double pDistanceToClosestPlayer) {
+        return false;
     }
     protected void registerGoals() {
         super.registerGoals();
