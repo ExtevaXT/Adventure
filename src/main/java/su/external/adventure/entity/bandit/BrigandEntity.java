@@ -1,14 +1,21 @@
 package su.external.adventure.entity.bandit;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.ai.goal.RangedBowAttackGoal;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.dries007.tfc.common.entities.ai.JavelinAttackGoal;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 import su.external.adventure.config.Config;
 import su.external.adventure.entity.base.AbstractRangedEntity;
+
+import java.util.Random;
 
 public class BrigandEntity extends AbstractRangedEntity {
     protected void registerGoals() {

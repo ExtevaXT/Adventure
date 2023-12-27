@@ -19,7 +19,7 @@ import su.external.adventure.Adventure;
 import su.external.adventure.config.Config;
 import su.external.adventure.item.AdventureItems;
 
-public abstract class AbstractHumanoidEntity extends Monster {
+public abstract class AbstractHumanoidEntity extends AbstractMonsterEntity {
     protected String[] METALS = Config.humanoidEntity.metals.get().toArray(String[]::new);
     protected int armor_tier = -1;
     protected int weapon_tier = -1;
@@ -27,26 +27,6 @@ public abstract class AbstractHumanoidEntity extends Monster {
     protected static final float ARMOR_PROBABILITY = Config.humanoidEntity.armorProbability.get().floatValue();
     protected AbstractHumanoidEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
-    }
-    public static AttributeSupplier.Builder bakeAttributes() {
-        return Monster.createMobAttributes()
-                .add(Attributes.MAX_HEALTH, Config.humanoidEntity.maxHealth.get())
-                .add(Attributes.ATTACK_DAMAGE, Config.humanoidEntity.attackDamage.get())
-                .add(Attributes.ATTACK_SPEED, Config.humanoidEntity.attackSpeed.get())
-                .add(Attributes.MOVEMENT_SPEED, Config.humanoidEntity.movementSpeed.get())
-                .add(Attributes.FOLLOW_RANGE, Config.humanoidEntity.followRange.get());
-    }
-    protected void registerGoals() {
-        this.goalSelector.addGoal(0, new WaterAvoidingRandomStrollGoal(this, 0.8D));
-        this.goalSelector.addGoal(2, new RestrictSunGoal(this));
-        this.goalSelector.addGoal(3, new FleeSunGoal(this, 1.0));
-
-        this.goalSelector.addGoal(7, new FloatGoal(this));
-        this.goalSelector.addGoal(8, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(8, new RandomLookAroundGoal(this));
-
-        this.targetSelector.addGoal(2, (new HurtByTargetGoal(this)));
-        this.targetSelector.addGoal(1, (new NearestAttackableTargetGoal(this, Player.class, true)));
     }
 
     protected void setArmor() {

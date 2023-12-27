@@ -28,7 +28,7 @@ apply plugin: 'maven-publish'
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
 apply plugin: 'org.spongepowered.mixin'
 
-version = '1.6.1'
+version = '1.7.0'
 group = 'su.external.adventure'
 archivesBaseName = 'Adventure'
 
@@ -54,9 +54,7 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.18.2-40.2.14'
 
-    if (System.getProperty("idea.sync.active") != "true") {
-        annotationProcessor "org.spongepowered:mixin:0.8.5:processor"
-    }
+    implementation fg.deobf("curse.maven:geckolib-388172:4181370")
 
     implementation fg.deobf("curse.maven:terrafirmacraft-302973:4514056")
     implementation fg.deobf("curse.maven:firmalife-453394:4506621")

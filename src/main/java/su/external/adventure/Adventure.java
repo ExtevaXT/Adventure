@@ -15,13 +15,13 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import software.bernie.geckolib3.GeckoLib;
 import su.external.adventure.config.Config;
-import su.external.adventure.entity.AdventureEntityTypes;
+import su.external.adventure.entity.AdventureEntities;
 import su.external.adventure.entityrain.command.RainArgumentType;
 import su.external.adventure.entityrain.data.EntityRainLoader;
 import net.minecraftforge.eventbus.api.IEventBus;
-import su.external.adventure.init.ClientSetup;
-import su.external.adventure.init.EntitySpawnRegistration;
+import su.external.adventure.init.AdventureSounds;
 import su.external.adventure.network.PacketHandler;
 import su.external.adventure.trade.TradeOffersLoader;
 import su.external.adventure.item.AdventureItems;
@@ -45,24 +45,28 @@ public class Adventure
         Adventure.LOGGER.info("Loaded Adventure Config");
         Adventure.LOGGER.info(Config.pirateCaptain.maxHealth.get());
         Adventure.LOGGER.info(Config.pirateCaptain.coinMultiplier.get());
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
         ArgumentTypes.register("tribe", RainArgumentType.class, new EmptyArgumentSerializer<>(RainArgumentType::new));
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
-        AdventureEntityTypes.register(eventBus);
+        AdventureEntities.register(eventBus);
+        AdventureSounds.register(eventBus);
         AdventureItems.register(eventBus);
-        eventBus.addListener(AdventureEntityTypes::createAttributes);
+        eventBus.addListener(AdventureEntities::createAttributes);
         eventBus.addListener(this::setup);
         PacketHandler.init();
         DistExecutor.safeRunWhenOn(Dist.CLIENT, () -> () -> eventBus.addListener(this::clientSetup));
+
+        GeckoLib.initialize();
+
+        // Register ourselves for server and other game events we are interested in
+        MinecraftForge.EVENT_BUS.register(this);
     }
     private void setup(final FMLCommonSetupEvent event) {
         LOGGER.info("Adventure Common Setup");
-        EntitySpawnRegistration.registerEntityWorldSpawns();
+        AdventureEntities.registerEntityWorldSpawns();
     }
     private void clientSetup(final FMLClientSetupEvent event) {
         LOGGER.info("Adventure Client Setup");
-        ClientSetup.registerEntityRenderers();
+        AdventureEntities.registerEntityRenderers();
     }
     // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent

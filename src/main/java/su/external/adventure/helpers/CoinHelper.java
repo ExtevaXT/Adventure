@@ -8,7 +8,6 @@ import java.util.function.BiConsumer;
 
 public class CoinHelper {
     public static final int[] VALUES = {100, 10, 1};
-    // This was definitely written not by me
     private static int iterateCoins(Player player, int toTake, BiConsumer<ItemStack, Integer> action) {
         int amount = 0;
         for (int value : VALUES)

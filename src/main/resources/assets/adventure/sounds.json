@@ -1,0 +1,38 @@
+{
+  "entity.cave_bug.ambient": {
+    "subtitle": "sounds.adventure.entity.cave_bug.ambient",
+    "sounds": [
+      "adventure:entity/cave_bug/ambient"
+    ]
+  },
+  "entity.cave_bug.death": {
+    "subtitle": "adventure.entity.cave_bug.death",
+    "sounds": [
+      "adventure:entity/cave_bug/death"
+    ]
+  },
+  "entity.cave_bug.hurt": {
+    "subtitle": "adventure.entity.cave_bug.hurt",
+    "sounds": [
+      "adventure:entity/cave_bug/hurt"
+    ]
+  },
+  "entity.cave_creep.ambient": {
+    "subtitle": "adventure.entity.cave_creep.ambient",
+    "sounds": [
+      "adventure:entity/cave_creep/ambient"
+    ]
+  },
+  "entity.cave_creep.death": {
+    "subtitle": "adventure.entity.cave_creep.death",
+    "sounds": [
+      "adventure:entity/cave_creep/death"
+    ]
+  },
+  "entity.cave_creep.hurt": {
+    "subtitle": "adventure.entity.cave_creep.hurt",
+    "sounds": [
+      "adventure:entity/cave_creep/hurt"
+    ]
+  }
+}

@@ -11,6 +11,14 @@
   "entity.adventure.pirate_crossbower": "Pirate Crossbower",
   "entity.adventure.pirate_deckhand": "Pirate Deckhand",
 
+  "entity.adventure.arocknid": "Arocknid",
+  "entity.adventure.cavecreep": "Cave Creep",
+  "entity.adventure.doubler": "Doubler",
+  "entity.adventure.rockbiter": "Rock Biter",
+  "entity.adventure.rockcrawler": "Rock Crawler",
+  "entity.adventure.rockcritter": "Rock Critter",
+
+
   "entity.adventure.trader": "Trader",
 
   "entity.adventure.big_slime": "Big Slime",

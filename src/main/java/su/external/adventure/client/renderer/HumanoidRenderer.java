@@ -1,4 +1,4 @@
-package su.external.adventure.entity;
+package su.external.adventure.client.renderer;
 
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

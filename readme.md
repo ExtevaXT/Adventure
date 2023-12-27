@@ -7,6 +7,7 @@ Features:
 - Trader that exchange denomination and buying goods.
 - Command /claim to claim chunks for 10000^1.5*{player chunks} coins
 - Almost full config for entities
+- some spooky entities from some big mod
 
 Notes:
 - Coin drop based on entity equipment
@@ -19,11 +20,10 @@ Dependencies:
 - open-parties-and-claims-forge-1.18.2-0.17.3.jar (Chunk claiming for coins)
 - decay_2012-1.0.2.jar (Trader decay modifier)
 - firmalife-1.2.9.jar (idk)
-- Patchouli-1.18.2-71.1.jar (Nested dependency)
-- jei-1.18.2-9.7.2.1001.jar (Nested dependency)
+- geckolib-?.jar (idk)
 
 Optional:
-- ez_supervisor-1.0.3.jar (For spawning bandits at night (Thanks to Forge, I didn't figure out how to handle it))
+- ez_supervisor-1.0.3.jar (For spawning bandits at night (I am tired find out how to handle it))
 
 ##
 Used [Entity Rain Mod - Smells Fishy](https://github.com/LukeGrahamLandry/smells-fishy-mod) code for spawn events
@@ -84,7 +84,14 @@ UPD Adventure-1.6.0
 - Fixed crossbower crossbow goal
 
 UPD Adventure-1.6.1
-- Replaced claim mod back to openpac, because I am retard
+- Replaced claim mod back to openpac, because // TODO find reason
+
+UPD Adventure-1.7.0
+- I don't know what the fuck I am doing now
+- Probably integrated cave entities
+- Probably made them ore scanning 
+- Probably fixed some spawns
+- Crawlers scan 24 block radius and drop 1-4 ore of it on death
   
 ## Loot tables
 

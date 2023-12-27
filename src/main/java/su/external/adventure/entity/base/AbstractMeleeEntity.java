@@ -8,7 +8,7 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.level.Level;
 import su.external.adventure.config.Config;
 
-public class AbstractMeleeEntity extends AbstractHumanoidEntity {
+public abstract class AbstractMeleeEntity extends AbstractHumanoidEntity {
     public AbstractMeleeEntity(EntityType<? extends Monster> entityType, Level level) {
         super(entityType, level);
     }
