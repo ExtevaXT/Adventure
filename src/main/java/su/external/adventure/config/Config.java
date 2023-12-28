@@ -14,6 +14,7 @@ import java.util.function.Function;
 
 public class Config {
     public static ForgeConfigSpec spec;
+    public static ClaimConfig claim;
     public static BigSlimeConfig bigSlime;
     public static BrigandConfig brigand;
     public static GoblinArcherConfig goblinArcher;
@@ -33,6 +34,7 @@ public class Config {
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
         builder.push("general");
+        claim = new ClaimConfig(builder);
         bigSlime = new BigSlimeConfig(builder);
         brigand = new BrigandConfig(builder);
         goblinArcher = new GoblinArcherConfig(builder);

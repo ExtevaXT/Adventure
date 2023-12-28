@@ -92,6 +92,7 @@ UPD Adventure-1.7.0
 - Probably made them ore scanning 
 - Probably fixed some spawns
 - Crawlers scan 24 block radius and drop 1-4 ore of it on death
+- Fixed trader despawn and claim command
   
 ## Loot tables
 

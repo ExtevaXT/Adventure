@@ -29,7 +29,8 @@
 
   "itemGroup.adventuretab": "Adventure",
 
-  "command.claim.fail": "Claim failed, you need %d coins",
+  "command.claim.fail": "Claim failed",
+  "command.claim.price": "You need %d coins",
   "trader.sold": "Sold for %d coins",
   "trader.exchange": "Exchanged %d coins",
   "trader.acceptable": "Accepting: %s",
