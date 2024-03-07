@@ -4,9 +4,12 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
 import su.external.adventure.config.Config;
 import su.external.adventure.entity.base.AbstractHumanoidEntity;
@@ -33,7 +36,37 @@ public class PirateCaptainEntity extends AbstractRaidEntity {
     protected void setWeapon() {
         weapon_tier = random.nextInt(METALS.length);
         setEquipment(EquipmentSlot.MAINHAND, "metal/sword/"+ METALS[weapon_tier]);
+        setEquipment(EquipmentSlot.OFFHAND, Items.SPYGLASS);
         super.setWeapon();
+    }
+
+    @Override
+    public void aiStep() {
+        super.aiStep();
+        // Shoot every 5s
+        if (this.tickCount % (20 * 5f) == 0) {
+            LivingEntity target = getTarget();
+            if (target != null) {
+                // Shoot in target or yourself
+                shoot(random.nextBoolean() ? target : this);
+            }
+        }
+    }
+    public void shoot(LivingEntity target){
+        this.level.explode(this,
+                target.getX() + random.nextFloat(-2, 2),
+                target.getY() + random.nextFloat(-2, 2),
+                target.getZ() + random.nextFloat(-2, 2),
+                random.nextInt(1, 2), Explosion.BlockInteraction.NONE);
+        target.hurt(DamageSource.MAGIC, random.nextFloat(0, 2));
+    }
+    @Override
+    public boolean hurt(DamageSource pSource, float pAmount) {
+        // Leap in random direction
+        if(random.nextBoolean()){
+            teleportTo(getX() + random.nextFloat(-2, 2), getY() + 1, getZ() + random.nextFloat(-2, 2));
+        }
+        return super.hurt(pSource, pAmount);
     }
     @Override
     protected void dropCustomDeathLoot(DamageSource source, int looting, boolean recentlyHitIn) {

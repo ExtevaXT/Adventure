@@ -46,7 +46,7 @@ UPD Adventure-1.2
 - Refactored the abstraction
 - Added 3 types of goblins: knight, peon, archer
 - Added goblin invasion event
-- Added 4 types of pirates: captain, corsair, crossbowman, laborer
+- Added 4 types of pirates: captain, corsair, crossbowman, deckhand
 - They could use some hats
 - Added pirate invasion event
 - Tested, the mobs are tough
@@ -63,7 +63,7 @@ UPD Adventure-1.4
 - Fixed drops
 - Added dependency FTBChunks
 - The /claim command claims a chunk for 10000^1.5*{number of claimed chunks} coins
-- Wasted 2 days to find out that LexMenos is a faggot
+- Wasted 2 days to find out that LexManos is a Mastermind
 - Refactored some trash in main class
 
 UPD Adventure-1.5
@@ -93,7 +93,10 @@ UPD Adventure-1.7.0
 - Probably fixed some spawns
 - Crawlers scan 24 block radius and drop 1-4 ore of it on death
 - Fixed trader despawn and claim command
-  
+
+UPD Adventure-1.7.1
+- Improved captain, now he can shoot himself
+
 ## Loot tables
 
 | Entity                             | Seeds 0.05                                  | Special                           | Gem Powder 0.05                                                       |

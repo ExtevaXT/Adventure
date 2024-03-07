@@ -117,6 +117,16 @@
               }
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "name": "tfc:ore/small_magnetite",
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.25
+            }
+          ]
         }
       ],
       "conditions": [
