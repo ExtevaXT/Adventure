@@ -61,6 +61,8 @@ dependencies {
     implementation fg.deobf("curse.maven:decay-2012-676521:3992745")
     implementation fg.deobf("curse.maven:open-parties-and-claims-636608:4500809")
 
+    implementation fg.deobf("curse.maven:tfc-hallucinocraft-847029:4484719")
+
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

@@ -5,6 +5,7 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import su.external.adventure.Adventure;
 import su.external.adventure.command.ClaimCommand;
+import su.external.adventure.command.DebugCommand;
 import su.external.adventure.command.TradesCommand;
 import su.external.adventure.entityrain.command.RainEventCommand;
 
@@ -15,5 +16,6 @@ public class CommandInit {
         RainEventCommand.register(event.getDispatcher());
         ClaimCommand.register(event.getDispatcher());
         TradesCommand.register(event.getDispatcher());
+        DebugCommand.register(event.getDispatcher());
     }
 }

@@ -6,9 +6,11 @@ import net.minecraft.world.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 import su.external.adventure.Adventure;
-import su.external.adventure.trade.TradeOffer;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class TradeOffersLoader {
@@ -33,15 +35,18 @@ public class TradeOffersLoader {
     private static void loadFood(){
         if (current_name.startsWith("food")){
             // Crutch time
-            loadCategory("Grain", 75);
-            loadCategory("Protein", 50);
-            loadCategory("Vegetable", 75);
-            loadCategory("Fruit", 50);
-            loadCategory("Diary", 100);
+            loadCategory("Fruits", 50);
+            loadCategory("Meats", 25);
+            loadCategory("Dairy", 100);
+            loadCategory("Breads", 65);
+            loadCategory("Grains", 55);
+            loadCategory("Vegetables", 65);
+            loadCategory("Raw Meats", 50);
+            loadCategory("Dough", 75);
+
         }
     }
     private static void loadMisc(){
-        loadContainsCategory("Bread", 100);
         loadContainsCategory("Soup", 150);
         loadContainsCategory("Jar", "_jar", 200);
         loadContainsCategory("Honey", 150);

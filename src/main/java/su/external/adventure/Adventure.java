@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.server.ServerStartingEvent;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.DistExecutor;
 import net.minecraftforge.fml.common.Mod;
@@ -20,22 +21,18 @@ import su.external.adventure.config.Config;
 import su.external.adventure.entity.AdventureEntities;
 import su.external.adventure.entityrain.command.RainArgumentType;
 import su.external.adventure.entityrain.data.EntityRainLoader;
-import net.minecraftforge.eventbus.api.IEventBus;
 import su.external.adventure.init.AdventureSounds;
+import su.external.adventure.item.AdventureItems;
 import su.external.adventure.network.PacketHandler;
 import su.external.adventure.trade.TradeOffersLoader;
-import su.external.adventure.item.AdventureItems;
 
 import java.util.concurrent.CompletableFuture;
 
-
-// The value here should match an entry in the META-INF/mods.toml file
 @Mod("adventure")
 public class Adventure
 {
     public static final String MOD_ID = "adventure";
     public static final String MOD_VERSION = "${version}";
-    // Directly reference a slf4j logger
     public static final Logger LOGGER = LogManager.getLogger();
     public static EntityRainLoader ENTITY_RAIN_LOADER = null;
     public Adventure()
@@ -43,8 +40,6 @@ public class Adventure
         LOGGER.info("Initializing Adventure");
         Config.setup();
         Adventure.LOGGER.info("Loaded Adventure Config");
-        Adventure.LOGGER.info(Config.pirateCaptain.maxHealth.get());
-        Adventure.LOGGER.info(Config.pirateCaptain.coinMultiplier.get());
         ArgumentTypes.register("tribe", RainArgumentType.class, new EmptyArgumentSerializer<>(RainArgumentType::new));
         IEventBus eventBus = FMLJavaModLoadingContext.get().getModEventBus();
         AdventureEntities.register(eventBus);
@@ -57,7 +52,6 @@ public class Adventure
 
         GeckoLib.initialize();
 
-        // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
     }
     private void setup(final FMLCommonSetupEvent event) {
@@ -68,7 +62,6 @@ public class Adventure
         LOGGER.info("Adventure Client Setup");
         AdventureEntities.registerEntityRenderers();
     }
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
         CompletableFuture.runAsync(() -> {

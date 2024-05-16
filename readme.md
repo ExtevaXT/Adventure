@@ -96,6 +96,12 @@ UPD Adventure-1.7.0
 
 UPD Adventure-1.7.1
 - Improved captain, now he can shoot himself
+- Finally fixed food trades
+
+Some plans:
+- Ogre
+- 4th event - Blood Moon
+- 5th event - Eclipse
 
 ## Loot tables
 
