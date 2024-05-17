@@ -7,7 +7,7 @@ Features:
 - Trader that exchange denomination and buying goods.
 - Command /claim to claim chunks for 10000^1.5*{player chunks} coins
 - Almost full config for entities
-- some spooky entities from some big mod
+- some epic entities from some big mod
 
 Notes:
 - Coin drop based on entity equipment
@@ -21,20 +21,24 @@ Dependencies:
 - decay_2012-1.0.2.jar (Trader decay modifier)
 - firmalife-1.2.9.jar (idk)
 - geckolib-?.jar (idk)
+- azurelib (todo remove geckolib)
+- smartbrains (mobs from aoa)
 
 Optional:
-- ez_supervisor-1.0.3.jar (For spawning bandits at night (I am tired find out how to handle it))
+- ez_supervisor-1.0.3.jar (For spawning)
 
 ##
 Used [Entity Rain Mod - Smells Fishy](https://github.com/LukeGrahamLandry/smells-fishy-mod) code for spawn events
 
+Used [Advent of Ascension](https://github.com/Tslat/Advent-Of-Ascension) for epic mobs
+
 ## Changelog:
 
-UPD Adventure-1.0
+Adventure-1.0
 - Moved EntityRainEvent to adventure.entityrain
 - Added a message during the start of the event
 
-UPD Adventure-1.1
+Adventure-1.1
 - Implemented Bandit and Brigand. Added TFC as a dependency for javelins
 - Forge is total shit, there is no info even in the discord about natural mob spawning
 - Seems to have fixed weapons for bandits
@@ -42,7 +46,7 @@ UPD Adventure-1.1
 - Wrote the drop of coins depending on the tier of armor and weapons, calculating the required denomination
 - Don't want to test, seems to work, with colored steel ~100 coins
 
-UPD Adventure-1.2
+Adventure-1.2
 - Refactored the abstraction
 - Added 3 types of goblins: knight, peon, archer
 - Added goblin invasion event
@@ -53,20 +57,19 @@ UPD Adventure-1.2
 - Added a chance for event, weights seem to be off
 - Added drops from https://misode.github.io/loot-table/
 
-UPD Adventure-1.3
+Adventure-1.3
 - Added a trader for exchanging coins
 - Should have used TFC API for metals from mobs
 - Found out that I'm retard, weights are normal
 
-UPD Adventure-1.4
+Adventure-1.4
 - Turns out you can't render mobs on the server
 - Fixed drops
 - Added dependency FTBChunks
 - The /claim command claims a chunk for 10000^1.5*{number of claimed chunks} coins
-- Wasted 2 days to find out that LexManos is a Mastermind
 - Refactored some trash in main class
 
-UPD Adventure-1.5
+Adventure-1.5
 - Added torches in offhand for bandits
 - Added lifetime for entityrain
 - Added big slime boss for slime day
@@ -76,17 +79,17 @@ UPD Adventure-1.5
 - Added Parchment, idk what is it
 - Added crutch for selling items with nutrient
 
-UPD Adventure-1.6.0
+Adventure-1.6.0
 - Borrowed some code and assets from some big mod
 - Refactored some code and added fucking configs
 - Added some logs
 - Synced version with Adventure TFC and added server version check
 - Fixed crossbower crossbow goal
 
-UPD Adventure-1.6.1
+Adventure-1.6.1
 - Replaced claim mod back to openpac, because // TODO find reason
 
-UPD Adventure-1.7.0
+Adventure-1.7.0
 - I don't know what the fuck I am doing now
 - Probably integrated cave entities
 - Probably made them ore scanning 
@@ -94,12 +97,12 @@ UPD Adventure-1.7.0
 - Crawlers scan 24 block radius and drop 1-4 ore of it on death
 - Fixed trader despawn and claim command
 
-UPD Adventure-1.7.1
-- Improved captain, now he can shoot himself
+Adventure-1.7.1
+- Improved captain
 - Finally fixed food trades
+- Ogre
 
 Some plans:
-- Ogre
 - 4th event - Blood Moon
 - 5th event - Eclipse
 

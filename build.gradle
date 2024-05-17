@@ -63,6 +63,8 @@ dependencies {
 
     implementation fg.deobf("curse.maven:tfc-hallucinocraft-847029:4484719")
 
+    implementation fg.deobf("curse.maven:smartbrainlib-661293:4458592")
+    implementation fg.deobf("curse.maven:azurelib-817423:5069923")
 }
 
 // Example for how to get properties into the manifest for reading at runtime.

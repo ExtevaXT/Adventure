@@ -5,16 +5,13 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
-import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
-import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import org.jetbrains.annotations.Nullable;
 import su.external.adventure.Adventure;
 import su.external.adventure.config.Config;
 import su.external.adventure.item.AdventureItems;
@@ -59,6 +56,12 @@ public abstract class AbstractHumanoidEntity extends AbstractMonsterEntity {
     protected Item Accessor(String name) {
         ResourceLocation itemLocation = new ResourceLocation("tfc", name);
         return Registry.ITEM.get(itemLocation);
+    }
+
+    @Nullable
+    @Override
+    public LivingEntity getTarget() {
+        return this.position().y < 300 ? super.getTarget() : null;
     }
 
     @Override

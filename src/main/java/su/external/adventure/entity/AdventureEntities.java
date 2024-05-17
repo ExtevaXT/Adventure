@@ -22,9 +22,11 @@ import su.external.adventure.Adventure;
 import su.external.adventure.client.renderer.ArocknidRenderer;
 import su.external.adventure.client.renderer.CaveCreepRenderer;
 import su.external.adventure.client.renderer.HumanoidRenderer;
+import su.external.adventure.client.renderer.OgreRenderer;
 import su.external.adventure.entity.bandit.BanditEntity;
 import su.external.adventure.entity.bandit.BrigandEntity;
 import su.external.adventure.entity.boss.BigSlimeEntity;
+import su.external.adventure.entity.boss.OgreEntity;
 import su.external.adventure.entity.crawler.ArocknidEntity;
 import su.external.adventure.entity.crawler.CaveCreepEntity;
 import su.external.adventure.entity.goblin.GoblinArcherEntity;
@@ -52,6 +54,7 @@ public class AdventureEntities {
     public static final RegistryObject<EntityType<BigSlimeEntity>> BIG_SLIME = register("big_slime", BigSlimeEntity::new, MobCategory.MONSTER, 3f, 3f, false);
     public static final RegistryObject<EntityType<ArocknidEntity>> AROCKNID = register("arocknid", ArocknidEntity::new, MobCategory.MONSTER, 0.875f, 1f, false);
     public static final RegistryObject<EntityType<CaveCreepEntity>> CAVE_CREEP = register("cave_creep", CaveCreepEntity::new, MobCategory.MONSTER, 9 / 16f, 13 / 16f, false);
+    public static final RegistryObject<EntityType<OgreEntity>> OGRE = register("ogre", OgreEntity::new, MobCategory.MONSTER, 22 / 16f, 54 / 16f, false);
     private static <T extends Mob> RegistryObject<EntityType<T>> register(String name, EntityType.EntityFactory<T> factory) {
         return register(name, factory, MobCategory.MONSTER, 0.5625f, 2.0f, false);
     }
@@ -82,6 +85,7 @@ public class AdventureEntities {
         event.put(BIG_SLIME.get(), BigSlimeEntity.bakeAttributes().build());
         event.put(AROCKNID.get(), ArocknidEntity.bakeAttributes().build());
         event.put(CAVE_CREEP.get(), CaveCreepEntity.bakeAttributes().build());
+        event.put(OGRE.get(), OgreEntity.bakeAttributes().build());
     }
     public static void registerEntityWorldSpawns() {
         SpawnPlacements.register(BANDIT.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, BanditEntity::checkBanditSpawnRules);
@@ -96,21 +100,23 @@ public class AdventureEntities {
         SpawnPlacements.register(BIG_SLIME.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.WORLD_SURFACE, BigSlimeEntity::checkMobSpawnRules);
         SpawnPlacements.register(AROCKNID.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.WORLD_SURFACE, ArocknidEntity::checkCrawlerSpawnRules);
         SpawnPlacements.register(CAVE_CREEP.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.WORLD_SURFACE, CaveCreepEntity::checkCrawlerSpawnRules);
+        SpawnPlacements.register(OGRE.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.WORLD_SURFACE, OgreEntity::checkMobSpawnRules);
     }
     @OnlyIn(Dist.CLIENT)
     public static void registerEntityRenderers() {
-        EntityRenderers.register(BANDIT.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/bandit.png")));
-        EntityRenderers.register(BRIGAND.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/brigand.png")));
-        EntityRenderers.register(GOBLIN_ARCHER.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/goblin.png")));
-        EntityRenderers.register(GOBLIN_PEON.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/goblin.png")));
-        EntityRenderers.register(GOBLIN_WARRIOR.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/goblin.png")));
-        EntityRenderers.register(PIRATE_CAPTAIN.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/pirate_captain.png")));
-        EntityRenderers.register(PIRATE_CORSAIR.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/pirate.png")));
-        EntityRenderers.register(PIRATE_CROSSBOWER.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/pirate.png")));
-        EntityRenderers.register(PIRATE_DECKHAND.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/pirate.png")));
-        EntityRenderers.register(TRADER.get(), (context) -> new HumanoidRenderer(context, Adventure.id("textures/entities/merchant.png")));
+        EntityRenderers.register(BANDIT.get(), (context) -> new HumanoidRenderer(context, "bandit.png"));
+        EntityRenderers.register(BRIGAND.get(), (context) -> new HumanoidRenderer(context, "brigand.png"));
+        EntityRenderers.register(GOBLIN_ARCHER.get(), (context) -> new HumanoidRenderer(context, "goblin.png"));
+        EntityRenderers.register(GOBLIN_PEON.get(), (context) -> new HumanoidRenderer(context, "goblin.png"));
+        EntityRenderers.register(GOBLIN_WARRIOR.get(), (context) -> new HumanoidRenderer(context, "goblin.png"));
+        EntityRenderers.register(PIRATE_CAPTAIN.get(), (context) -> new HumanoidRenderer(context, "pirate_captain.png"));
+        EntityRenderers.register(PIRATE_CORSAIR.get(), (context) -> new HumanoidRenderer(context, "pirate.png"));
+        EntityRenderers.register(PIRATE_CROSSBOWER.get(), (context) -> new HumanoidRenderer(context, "pirate.png"));
+        EntityRenderers.register(PIRATE_DECKHAND.get(), (context) -> new HumanoidRenderer(context, "pirate.png"));
+        EntityRenderers.register(TRADER.get(), (context) -> new HumanoidRenderer(context, "merchant.png"));
         EntityRenderers.register(BIG_SLIME.get(), SlimeRenderer::new);
         EntityRenderers.register(AROCKNID.get(), ArocknidRenderer::new);
         EntityRenderers.register(CAVE_CREEP.get(), CaveCreepRenderer::new);
+        EntityRenderers.register(OGRE.get(), OgreRenderer::new);
     }
 }

@@ -12,21 +12,23 @@ import su.external.adventure.client.model.CaveCreepModel;
 import su.external.adventure.entity.crawler.CaveCreepEntity;
 
 public class CaveCreepRenderer extends GeoEntityRenderer<CaveCreepEntity> {
-public CaveCreepRenderer(EntityRendererProvider.Context renderManager) {
+    public CaveCreepRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new CaveCreepModel());
         this.shadowRadius = 0.3f;
-        }
+    }
+    @Override
+    public ResourceLocation getTextureLocation(CaveCreepEntity instance) {
+        return new ResourceLocation(
+                Adventure.MOD_ID, "textures/entities/crawler/cave_creep.png");
+    }
 
-@Override
-public ResourceLocation getTextureLocation(CaveCreepEntity instance) {
-        return new ResourceLocation(Adventure.MOD_ID, "textures/entities/cave_creep.png");
-        }
-
-@Override
-public RenderType getRenderType(CaveCreepEntity animatable, float partialTicks, PoseStack stack,
-        MultiBufferSource renderTypeBuffer, VertexConsumer vertexBuilder, int packedLightIn,
-        ResourceLocation textureLocation) {
+    @Override
+    public RenderType getRenderType(CaveCreepEntity animatable,
+                                    float partialTicks, PoseStack stack, MultiBufferSource renderTypeBuffer,
+                                    VertexConsumer vertexBuilder, int packedLightIn,
+                                    ResourceLocation textureLocation) {
         stack.scale(0.8F, 0.8F, 0.8F);
-        return super.getRenderType(animatable, partialTicks, stack, renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
-        }
-        }
+        return super.getRenderType(animatable, partialTicks, stack,
+                renderTypeBuffer, vertexBuilder, packedLightIn, textureLocation);
+    }
+}

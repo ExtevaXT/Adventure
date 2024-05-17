@@ -29,10 +29,37 @@
       "adventure:entity/cave_creep/death"
     ]
   },
-  "entity.cave_creep.hurt": {
-    "subtitle": "adventure.entity.cave_creep.hurt",
+  "entity.ogre.belly_drum": {
+    "subtitle": "adventure.entity.ogre.belly_drum",
     "sounds": [
-      "adventure:entity/cave_creep/hurt"
+      "adventure:entity/ogre/belly_drum"
+    ]
+  },
+  "entity.ogre.enrage": {
+    "subtitle": "adventure.entity.ogre.enrage",
+    "sounds": [
+      "adventure:entity/ogre/enrage"
+    ]
+  },
+  "entity.ogre.hurt": {
+    "subtitle": "adventure.entity.ogre.hurt",
+    "sounds": [
+      "adventure:entity/ogre/hurt"
+    ]
+  },
+  "entity.ogre.death": {
+    "subtitle": "adventure.entity.ogre.death",
+    "sounds": [
+      "adventure:entity/ogre/death"
+    ]
+  },
+  "entity.ogre.ambient": {
+    "subtitle": "adventure.entity.ogre.ambient",
+    "sounds": [
+      "adventure:entity/ogre/ambient1",
+      "adventure:entity/ogre/ambient2",
+      "adventure:entity/ogre/ambient3"
     ]
   }
+
 }

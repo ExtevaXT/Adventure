@@ -12,6 +12,7 @@ import su.external.adventure.client.model.ArocknidModel;
 import su.external.adventure.entity.crawler.ArocknidEntity;
 
 public class ArocknidRenderer extends GeoEntityRenderer<ArocknidEntity> {
+
     public ArocknidRenderer(EntityRendererProvider.Context renderManager) {
         super(renderManager, new ArocknidModel());
         this.shadowRadius = 0.3f;
@@ -19,7 +20,7 @@ public class ArocknidRenderer extends GeoEntityRenderer<ArocknidEntity> {
 
     @Override
     public ResourceLocation getTextureLocation(ArocknidEntity instance) {
-        return new ResourceLocation(Adventure.MOD_ID, "textures/entities/arocknid.png");
+        return new ResourceLocation(Adventure.MOD_ID, "textures/entities/crawler/arocknid.png");
     }
 
     @Override

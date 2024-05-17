@@ -14,9 +14,6 @@ import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import software.bernie.geckolib3.core.IAnimatable;
-import software.bernie.geckolib3.core.PlayState;
-import software.bernie.geckolib3.core.builder.AnimationBuilder;
-import software.bernie.geckolib3.core.event.predicate.AnimationEvent;
 import software.bernie.geckolib3.core.manager.AnimationData;
 import software.bernie.geckolib3.core.manager.AnimationFactory;
 import su.external.adventure.client.AdventureAnimations;
@@ -33,6 +30,7 @@ public class ArocknidEntity extends AbstractCrawlerEntity implements IAnimatable
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(CLIMBING, (byte)0);
+        
     }
 
     @Override

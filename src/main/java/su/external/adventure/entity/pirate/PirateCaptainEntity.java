@@ -1,16 +1,22 @@
 package su.external.adventure.entity.pirate;
 
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.monster.Ghast;
 import net.minecraft.world.entity.monster.Monster;
+import net.minecraft.world.entity.projectile.LlamaSpit;
+import net.minecraft.world.entity.projectile.SmallFireball;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import su.external.adventure.config.Config;
 import su.external.adventure.entity.base.AbstractHumanoidEntity;
 import su.external.adventure.entity.base.AbstractRaidEntity;
@@ -53,10 +59,14 @@ public class PirateCaptainEntity extends AbstractRaidEntity {
         }
     }
     public void shoot(LivingEntity target){
-        this.level.explode(this,
-                target.getX() + random.nextFloat(-2, 2),
-                target.getY() + random.nextFloat(-2, 2),
-                target.getZ() + random.nextFloat(-2, 2),
+        Vec3 vec3 = getViewVector(1.0F);
+        double x = target.getX() + random.nextFloat(-2, 2);
+        double y = target.getY() + random.nextFloat(-2, 2);
+        double z = target.getZ() + random.nextFloat(-2, 2);
+        SmallFireball projectile = new SmallFireball(level, this, x, y, z);
+        projectile.setPos(getX() + vec3.x * 1.5D, getY(), projectile.getZ() + vec3.z * 1.5D);
+        level.addFreshEntity(projectile);
+        this.level.explode(this, x, y, z,
                 random.nextInt(1, 2), Explosion.BlockInteraction.NONE);
         target.hurt(DamageSource.MAGIC, random.nextFloat(0, 2));
     }

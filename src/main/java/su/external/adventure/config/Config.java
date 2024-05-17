@@ -3,14 +3,8 @@ package su.external.adventure.config;
 import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 import net.minecraftforge.common.ForgeConfigSpec;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.config.ModConfig;
 import net.minecraftforge.fml.loading.FMLPaths;
-import org.apache.commons.lang3.tuple.Pair;
 import su.external.adventure.config.entity.*;
-import su.external.adventure.entity.crawler.CaveCreepEntity;
-
-import java.util.function.Function;
 
 public class Config {
     public static ForgeConfigSpec spec;
@@ -29,7 +23,8 @@ public class Config {
     public static PirateDeckhandConfig pirateDeckhand;
     public static RangedEntityConfig rangedEntity;
     public static CrawlerEntityConfig crawlerEntity;
-    public static CaveCreepEntityConfig caveCreepEntity;
+    public static CaveCreepConfig caveCreepEntity;
+    public static OgreConfig ogreEntity;
 
     static {
         ForgeConfigSpec.Builder builder = new ForgeConfigSpec.Builder();
@@ -49,7 +44,9 @@ public class Config {
         pirateDeckhand = new PirateDeckhandConfig(builder);
         rangedEntity = new RangedEntityConfig(builder);
         crawlerEntity = new CrawlerEntityConfig(builder);
-        caveCreepEntity = new CaveCreepEntityConfig(builder);
+        caveCreepEntity = new CaveCreepConfig(builder);
+        ogreEntity = new OgreConfig(builder);
+
         spec = builder.build();
     }
     public static void setup() {
